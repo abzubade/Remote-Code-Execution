@@ -43,6 +43,29 @@ c. Automated Actions (Endpoint Detection Response)
 d. Review and Create
 <img width="965" height="1572" alt="Screenshot 2025-11-14 at 6 58 29 PM" src="https://github.com/user-attachments/assets/05405822-03d6-46fc-a1dc-5e2ecbbf2011" />
 
+7. After detection rule was successfully created, the device was automatically qurantined shortly after. If so, then you should be able to see a triggered action under your detection rule, showing that the device was isolated and a collection investigation package was also installed. After confirming I then released the device from isolation and downloaded the collection package.
+
+<img width="768" height="394" alt="image" src="https://github.com/user-attachments/assets/032cac32-f31c-4534-a8da-aca460638bf0" />
+
+<img width="878" height="767" alt="image" src="https://github.com/user-attachments/assets/0b2dfc97-0327-4f77-919f-547c642e2ee2" />
+
+<img width="510" height="977" alt="Screenshot 2025-11-17 at 1 54 53 PM" src="https://github.com/user-attachments/assets/5934a30f-be17-4490-a33e-64278c1657ef" />
+
+## 🧩 MITRE ATT&CK Technique Report
+
+This activity aligns with several MITRE ATT&CK techniques commonly observed in script-based Remote Code Execution (RCE) attacks and frequently mapped in Microsoft Defender. The command used in this lab demonstrates the use of trusted system binaries (LOLBins), external file retrieval, and silent process execution to mimic real-world adversary behavior.
+
+- T1059.001 – Command and Scripting Interpreter: PowerShell
+PowerShell is used to execute commands, bypass execution policies, and perform automation without user interaction. This is a common technique for adversaries attempting to run malicious code while avoiding traditional security controls.
+
+- T1105 – Ingress Tool Transfer
+Invoke-WebRequest downloads an executable from an external source onto the local system. Attackers routinely use this technique to deliver payloads, malware installers, or supporting tools during initial access or post-exploitation.
+
+- T1204.002 – User Execution: Malicious File
+Although executed silently in this simulation, launching a newly downloaded executable is mapped to this technique. Attackers frequently rely on user or script-driven execution to deploy payloads.
+
+- T1569.002 – System Services: Service Execution (Start-Process)
+Start-Process is used to execute the downloaded installer. Microsoft Defender maps this class of behavior to service or process execution techniques that adversaries use to run secondary payloads and escalate attacks.
 
 
 
