@@ -1,4 +1,4 @@
-# 🔍 Remote Code Execution Detection
+# 🔍 Threat Hunt Investigation: Remote Code Execution Detection
 
 ---
 
